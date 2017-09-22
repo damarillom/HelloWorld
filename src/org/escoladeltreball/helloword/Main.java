@@ -3,6 +3,8 @@
  */
 package org.escoladeltreball.helloword;
 
+import java.util.Arrays;
+
 /**
  * @author iaw26509397
  *
@@ -15,8 +17,8 @@ public final class Main implements Utils {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		System.out.println("Hello World");
-//		int[] values = {3, 2, 4, 2, 6};
-//		Main m = new Main();
+		int[] values = {1,2,4};
+		Main m = new Main();
 //		int small = m.findSmallest(values);
 //		System.out.println(small);
 //		int sum = m.sum(values);
@@ -26,7 +28,8 @@ public final class Main implements Utils {
 //		System.out.println(frecuency);
 //		double frequency = m.frequencyPercentage(values, n);
 //		System.out.println(frequency);
-	}
+		System.out.println(Arrays.toString(m.merge(values, 3)));
+	} 
 	/*
 	 * (non-Javadoc)
 	 * Stub
@@ -78,5 +81,32 @@ public final class Main implements Utils {
 		frequency = frequency * 100 / values.length;
 		return frequency;
 	}
-
+	public boolean isPresent(int[] values, int n) {
+		boolean present = false;
+		for (int i = 0; i < values.length; i++) {
+			if (n == values[i]) {
+				present = true;
+			}
+		}
+		return present;
+	}
+	public int[] merge(int[] values, int n) {
+		int[] merge = new int[values.length + 1];
+		Main m = new Main();
+		for (int j = 0; j < merge.length;j++) {
+			merge[j] = 0;
+		}
+		for (int i = 0; i < values.length; i++) {
+			
+			if (!m.isPresent(merge, n)) {
+				merge[i] = values[i];
+			} else {
+				merge[i+1] = values[i];
+			}
+			if (n > values[i] && n < values[i+1]) {
+				merge[i+1] = n;
+			}
+		}
+		return merge;
+	}
 }

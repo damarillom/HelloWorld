@@ -24,4 +24,13 @@ public interface Utils {
 	 * this method returns the sum of values
 	 */
 	public abstract int sum(int[] values);
+	/*
+	 * this method returns true if n is in values
+	 */
+	public abstract boolean isPresent(int[] values, int n);
+	/*
+	 * this method returns an integer with n in its place
+	 * NOTE: values is am ordered array
+	 */
+	public abstract int[] merge(int[] values, int n);
 }

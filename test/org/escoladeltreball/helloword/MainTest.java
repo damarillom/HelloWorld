@@ -100,5 +100,22 @@ public class MainTest {
 		assertEquals(50, main.frequencyPercentage(new int[] {5,78,4,5}, 5), 0.001);
 		assertEquals(75, main.frequencyPercentage(new int[] {5,5,8,5}, 5), 0.001);
 	}
-
+	/**
+	 * Test method for {@link org.escoladeltreball.helloword.Main#isPresent(int[], int)}.
+	 */
+	@Test
+	public final void testIsPresent() {
+		assertEquals(true, main.isPresent(new int[] {5,5,5}, 5));
+		assertEquals(false, main.isPresent(new int[] {5,5,5}, 3));
+		assertEquals(true, main.isPresent(new int[] {5,78,4}, 5));
+	}
+	/**
+	 * Test method for {@link org.escoladeltreball.helloword.Main#merge(int[], int)}.
+	 */
+	@Test
+	public final void testMerge() {
+		assertArrayEquals(new int[] {1,2,3,4}, main.merge(new int[] {1,2,4}, 3));
+		//assertEquals(false, main.merge(new int[] {5,5,5}, 3));
+		//assertEquals(true, main.merge(new int[] {5,78,4}, 5));
+	}
 }
